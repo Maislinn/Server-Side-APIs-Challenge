@@ -42,10 +42,10 @@ THEN I am again presented with current and future conditions for that city
 
 
 ## Usage
-The following animation demonstrates the application functionality (animation provided in instructions):
+The following images shows a privew of the functionality:
 
-![A user clicks on slots on the color-coded calendar and edits the events.](./Assets/05-third-party-apis-homework-demo.gif)
-
+![Demo1](./assets/Demo1.png)
+![Demo1](./assets/Demo2.png)
 ## Features
 - Bootstrap
 - Day JS
