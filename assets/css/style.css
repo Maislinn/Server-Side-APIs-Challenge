@@ -26,3 +26,109 @@ body {
     background-color: white;
     border-radius: 30px;
 }
+
+.container {
+    margin: 10px;
+    border-radius: 30px;
+}
+
+input {
+    text-align: center;
+    border-radius: 30px;
+}
+
+/*buttons*/
+
+.btn {
+    background-color: #0a5371;
+    width: 100%;
+    border: 30px;
+    border-radius: 30px;
+}
+
+
+.btn-styled {
+    color: white;
+    border-radius: 10px;
+    width: 100%;
+    background-color: #0a5371;;
+    border-radius: 30px;
+}
+
+.saveBtn {
+    list-style-type: none; 
+    margin: 5px;
+    border-radius: 30px;
+    }
+
+
+/*cards*/
+
+.container {
+    margin: 10px;
+    border-radius: 30px;
+}
+
+.card {
+    background-color: #0a5371;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 30px;
+}
+
+.cardHeader {
+    background-color: white;
+    justify-content: center;
+    font-weight: bold;
+    margin: 5px;
+    border-radius: 10px;
+}
+
+.allCards {
+    width: 10rem;
+    margin: 5px;
+    border: solid 10px #0a5371;
+    border-radius: 30px;
+}
+
+.listAll {
+    justify-content: center;
+    border-radius: 30px;
+}
+
+.listAllRequest {
+    background-color:  white;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 30px;
+}
+
+.listAllMain {
+    padding: 10px;
+    margin: 5px;
+    border-radius: 30px;
+}
+
+/*elements*/
+
+#todayWeather {
+    color: black;
+    font-weight: bold;
+    text-align: center;
+    margin-left: 80px;
+    -webkit-text-stroke: 0px;
+    border-radius: 30px;
+}
+
+#searchTitle {
+    font-size: 25px;
+    font-weight: 10px;
+    border-radius: 30px;
+}
+
+#searchInput {
+    margin-bottom: 10px;
+    border-radius: 30px;
+}
+
+

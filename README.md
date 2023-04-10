@@ -40,13 +40,16 @@ THEN I am again presented with current and future conditions for that city
 - CSS
 
 
+
 ## Usage
 The following animation demonstrates the application functionality (animation provided in instructions):
 
 ![A user clicks on slots on the color-coded calendar and edits the events.](./Assets/05-third-party-apis-homework-demo.gif)
 
 ## Features
-- Heroku
+- Bootstrap
+- Day JS
+- Jquery
 
 ## Credits
 - UC Berkeley Extension 2023
