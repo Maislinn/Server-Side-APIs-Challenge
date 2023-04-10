@@ -2,7 +2,7 @@
 //const savedCities = [];
 
 var cityName = $('#city-name');
-var citySearch = $('#city-search');
+//var citySearch = $('#city-search');
 var cities = [];
 var apiKey = '743ea4c7bdf1f7b353db6f0970bd117f';
 
@@ -73,12 +73,12 @@ $("#city-search").on("submit", function (event) {
 
 //function to get response weather from API
 function getWeather(city) {
-    var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + apiKey;
+    var queryURL1 = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + apiKey;
     $.ajax({
-        url: queryURL,
+        url: queryURL1,
         method: "GET"
     }).then(function (response) {
-        
+
  //create a new table row element
     title = $("<h3>").text(response.name + " (" + formatDate() + ") ");
     $("#current-weather").append(title);
@@ -93,9 +93,9 @@ function getWeather(city) {
     var lon = response.coord.lon;
 
 //call function to get UV index
-    var queryURL = "https://api.openweathermap.org/data/2.5/uvi?appid=" + apiKey + "&lat=" + lat + "&lon=" + lon;
+    var queryURL2 = "https://api.openweathermap.org/data/2.5/uvi?appid=" + apiKey + "&lat=" + lat + "&lon=" + lon;
     $.ajax({
-        url: queryURL,
+        url: queryURL2,
         method: "GET"
     }).then(function (response) {
         var uvIndex = $("<p>").text("UV Index: " + response.value);
@@ -105,9 +105,9 @@ function getWeather(city) {
     });
 });
 // Api to get 5 day forecast
-var queryURL = "https://api.openweathermap.org/data/2.5/forecast?q=" + city + "&appid=" + apiKey;
+var queryURL3 = "https://api.openweathermap.org/data/2.5/forecast?q=" + cityName + "&appid=" + apiKey;
 $.ajax({
-    url: queryURL,
+    url: queryURL3,
     method: "GET"
 }).then(function (responseForecast) {
     $("#forecast").empty();
@@ -130,7 +130,7 @@ $.ajax({
             forcastFive.append(tempForecast);
             var humidityForecast = $("<p>").text("Humidity: " + responseForecast.list[i].main.humidity + "%");
             forcastFive.append(humidityForecast);
-            $("#forecast").append(forcastFive);
+            $("#forecastBox").append(forcastFive);
         console.log(forecastFive);
             j++;
         }
@@ -141,7 +141,7 @@ $.ajax({
 }
 
 //Click function to each list item
-$(document).on("click", "#city", function () {
-    var city = $(this).attr("data-city");
-    getWeather(city);
+$(document).on("click", "#cityList", function () {
+    var selectCity = $(this).attr("data-city");
+    getWeather(selectCity);
 });
