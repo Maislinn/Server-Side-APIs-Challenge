@@ -23,59 +23,71 @@
 ></script>
 
 </head>
-<body>
-    <header> </header>
 
-    <div class="container">
+<body>
+
+  <body>
+    <!-- Header bar -->
+      <header>WEATHER DASHBOARD<b></b></header>
+  
+      <!-- description under header -->
+      <div class= text-center>
+      <p>Search for a city to get the current weather and a 5 day forecast.</p>
+    </div>
+
+      <div class="container">
         <div class = text-center>
             <div class = container>
-            <h1>Weather Dashboard</h1>
-            <p>Search for a city to get the current weather and a 5 day forecast.</p>
             </div>
-    </div>
+      </div>
 
+
+      <!-- Searching column -->
+      <div class="container row">
+      <div class="city-search col">
+          <form class= "col justify-content-start">
+  
     <div class="row">
-        <div class="col-3">
-            <h2>Search City</h2>
-            <div class="input-group mb-2">
-                <input type="text" class="form-control" id="city-input" placeholder="Enter City Name" aria-describedby="basic-addon2">
-          <div class="input-group-append">
-            <button id ="city-search" class="btn btn-outline-secondary bg-primary" type="button">
-                <ion-icon name="search-outline"></ion-icon> </button>
-          </div>
-        </div>
-
-        <div class="card" style="width: 15rem;">
-          <ul id="city-list" class="list-group list-group-flush">
-
-          </ul>
-        </div>
-      </div>
-
-      <div class="col-8 m-2">
-
-        <div class="row-12">
-          <div class="card">
-            <div id="current-weather" class="card-body">
-
-            </div>
-          </div>
-        </div>
-
-        <br>
-        <div class="row-12">
-          <h3>5 Day Forecast</h3>
-        </div>
-
-        <br>
-        <div id ="forecastBox" class="row">
-        
-        </div>
-      </div>
+      <p id="todayWeather"> </p>
+      <input type="text" readonly class="form-control-plaintext" id="searchTitle" value="Search for a city">
     </div>
-   
-   </div>
-   
-    <script src="script.js"></script>
+  
+    <div class="col-auto searchDiv">
+      <input type="Type City Name" class="form-control" placeholder="Type City Name" id="searchInput">
+      <div class="col">
+      <button type="submit" class="btn btn-primary">Search</button>
+    </div>
+  
+  </div>
+  <!--saving cities-->
+  </form>
+  <div class = "col">
+    <div class="savedCities">
+    </div>
+  </div>
+  
+    </div>  
+      <div class="results col-8">
+      <div class="localWeather row">
+      </div>
+      
+      <div class="fiveDayForecast row d-flex justify-content-evenly"></div>
+      <br><br>
+  </div>
+  
+  </div>
+  
+  <!--Adding the sources -->
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+  
+      <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+  
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  
+      <script src="https://cdn.jsdelivr.net/npm/dayjs@1.11.3/dayjs.min.js" integrity="sha256-iu/zLUB+QgISXBLCW/mcDi/rnf4m4uEDO0wauy76x7U="
+      crossorigin="anonymous"></script>
+  <!-- Link js files -->
+      <script src="./Assets/js/script.js"></script>
+  
   </body>
-</html>
+  </html>
