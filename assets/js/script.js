@@ -59,7 +59,7 @@ function renderCities() {
     };
 }
 
-//when form is submitted ...
+//Form Submission
 $("#city-search").on("submit", function (event) {
     event.preventDefault();
     var city = $("#city-input").val().trim();
@@ -71,5 +71,77 @@ $("#city-search").on("submit", function (event) {
     renderCities();
 });
 
+//function to get response weather from API
+function getWeather(city) {
+    var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + apiKey;
+    $.ajax({
+        url: queryURL,
+        method: "GET"
+    }).then(function (response) {
+        
+ //create a new table row element
+    title = $("<h3>").text(response.name + " (" + formatDate() + ") ");
+    $("#current-weather").append(title);
+    var TempToNum = parseInt(response.main.temp);
+    var temp = $("<p>").text("Temperature: " + TempToNum + " °F");
+    $("#current-weather").append(temp);
+    var humidity = $("<p>").text("Humidity: " + response.main.humidity + "%");
+    $("#current-weather").append(humidity);
+    var windSpeed = $("<p>").text("Wind Speed: " + response.wind.speed + " MPH");
+    $("#current-weather").append(windSpeed);
+    var lat = response.coord.lat;
+    var lon = response.coord.lon;
 
+//call function to get UV index
+    var queryURL = "https://api.openweathermap.org/data/2.5/uvi?appid=" + apiKey + "&lat=" + lat + "&lon=" + lon;
+    $.ajax({
+        url: queryURL,
+        method: "GET"
+    }).then(function (response) {
+        var uvIndex = $("<p>").text("UV Index: " + response.value);
+        var uvIndexValue = $("<p>").text("Uv Index Value: " + response.value);
+        $("#current-weather").append(uvIndex);
+        $("#current-weather").append(uvIndexValue);
+    });
+});
+// Api to get 5 day forecast
+var queryURL = "https://api.openweathermap.org/data/2.5/forecast?q=" + city + "&appid=" + apiKey;
+$.ajax({
+    url: queryURL,
+    method: "GET"
+}).then(function (responseForecast) {
+    $("#forecast").empty();
+    console.log(responseForecast);
+    for (var i = 0, j=0; j<=5; i=i+6){
+        var dateResponse = responseForecast.list[i].dt;
+        if(responseForecast.list[i].dt !== responseForecast.list[i+1].dt){
+            var forcastFive = $("<div>").attr("class", "card col-md-2 ml-4 bg-primary text-white");
+            var d = new Date(0);
+            d.setUTCSeconds(dateResponse);
+            var date = d;
+        console.log(date);
+            var month = date.getMonth() + 1;
+            var day = date.getDate();
+            var year = date.getFullYear();
+            var dateGenerated = month + '/' + day + '/' + year;
+            var dateForecast = $("<h5>").text(dateGenerated);
+            forcastFive.append(dateForecast);
+            var tempForecast = $("<p>").text("Temp: " + responseForecast.list[i].main.temp + " °F");
+            forcastFive.append(tempForecast);
+            var humidityForecast = $("<p>").text("Humidity: " + responseForecast.list[i].main.humidity + "%");
+            forcastFive.append(humidityForecast);
+            $("#forecast").append(forcastFive);
+        console.log(forecastFive);
+            j++;
+        }
+    }
 
+});
+
+}
+
+//Click function to each list item
+$(document).on("click", "#city", function () {
+    var city = $(this).attr("data-city");
+    getWeather(city);
+});
