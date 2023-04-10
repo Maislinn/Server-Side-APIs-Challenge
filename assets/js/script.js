@@ -1,10 +1,6 @@
-//const apiKey = '743ea4c7bdf1f7b353db6f0970bd117f'
-//const savedCities = [];
-
-var cityName = $('#city-name');
-//var citySearch = $('#city-search');
-var cities = [];
-var apiKey = '743ea4c7bdf1f7b353db6f0970bd117f';
+//pull in my API Key
+const apiKey = '743ea4c7bdf1f7b353db6f0970bd117f'
+const savedCities = [];
 
 // format for the day
 function formatDate(date) {
@@ -60,7 +56,7 @@ function renderCities() {
 }
 
 //Form Submission
-$("#city-search").on("submit", function (event) {
+$("#city-search").submit(function (event){
     event.preventDefault();
     var city = $("#city-input").val().trim();
     if (city === "") {
